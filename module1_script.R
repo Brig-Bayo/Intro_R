@@ -1,20 +1,21 @@
 # Module 1: Basic Use of R
+# Author: Brig-Bayo
 # This script demonstrates the basic concepts covered in Module 1
 
 # ===== R as a Calculator =====
 # Basic arithmetic operations
-5 + 3  # Addition
-10 - 4  # Subtraction
-6 * 7  # Multiplication
-15 / 3  # Division
-2^3  # Exponentiation
-17 %% 5  # Modulo (remainder after division)
-17 %/% 5  # Integer division
+print(5 + 3)  # Addition
+print(10 - 4)  # Subtraction
+print(6 * 7)  # Multiplication
+print(15 / 3)  # Division
+print(2^3)  # Exponentiation
+print(17 %% 5)  # Modulo (remainder after division)
+print(17 %/% 5)  # Integer division
 
 # ===== Variables and Assignment =====
 # Assigning values to variables
 x <- 10
-y = 5  # Alternative assignment operator
+y <- 5  # Consistent use of '<-' for assignment
 
 # Printing the value of a variable
 print(x)
@@ -26,46 +27,46 @@ print(z)  # Result: 15
 
 # ===== Basic Functions =====
 # Square root
-sqrt(25)  # Result: 5
+print(sqrt(25))  # Result: 5
 
 # Absolute value
-abs(-7)  # Result: 7
+print(abs(-7))  # Result: 7
 
 # Rounding
-round(3.14159, 2)  # Result: 3.14
+print(round(3.14159, 2))  # Result: 3.14
 
 # Natural logarithm
-log(10)  # Result: 2.302585
+print(log(10))  # Result: 2.302585
 
 # Exponential
-exp(1)  # Result: 2.718282 (e)
+print(exp(1))  # Result: 2.718282 (e)
 
 # Sum
-sum(1, 2, 3, 4, 5)  # Result: 15
+print(sum(1, 2, 3, 4, 5))  # Result: 15
 
 # Mean
-mean(c(1, 2, 3, 4, 5))  # Result: 3
+print(mean(c(1, 2, 3, 4, 5)))  # Result: 3
 
 # ===== Data Types =====
 # Numeric
 x <- 10.5
-class(x)  # Result: "numeric"
+print(class(x))  # Result: "numeric"
 
 # Integer
 y <- 10L  # The 'L' suffix creates an integer
-class(y)  # Result: "integer"
+print(class(y))  # Result: "integer"
 
 # Character
 name <- "John"
-class(name)  # Result: "character"
+print(class(name))  # Result: "character"
 
 # Logical
 is_student <- TRUE
-class(is_student)  # Result: "logical"
+print(class(is_student))  # Result: "logical"
 
 # Complex
 z <- 3 + 2i
-class(z)  # Result: "complex"
+print(class(z))  # Result: "complex"
 
 # ===== Data Structures =====
 # Vectors
@@ -78,12 +79,12 @@ fruits <- c("apple", "banana", "orange")
 print(fruits)
 
 # Accessing elements of a vector
-numbers[1]  # Result: 1 (R indexing starts at 1, not 0)
-fruits[2]  # Result: "banana"
+print(numbers[1])  # Result: 1 (R indexing starts at 1, not 0)
+print(fruits[2])  # Result: "banana"
 
 # Vector operations
-numbers * 2  # Result: 2 4 6 8 10
-numbers + c(10, 20, 30, 40, 50)  # Result: 11 22 33 44 55
+print(numbers * 2)  # Result: 2 4 6 8 10
+print(numbers + c(10, 20, 30, 40, 50))  # Result: 11 22 33 44 55
 
 # Matrices
 # Creating a matrix
@@ -91,9 +92,9 @@ mat <- matrix(1:9, nrow = 3, ncol = 3)
 print(mat)
 
 # Accessing elements of a matrix
-mat[1, 2]  # Result: 4 (element in row 1, column 2)
-mat[2, ]   # Result: 2 5 8 (entire second row)
-mat[, 3]   # Result: 7 8 9 (entire third column)
+print(mat[1, 2])  # Result: 4 (element in row 1, column 2)
+print(mat[2, ])   # Result: 2 5 8 (entire second row)
+print(mat[, 3])   # Result: 7 8 9 (entire third column)
 
 # Lists
 # Creating a list
@@ -101,24 +102,25 @@ person <- list(name = "John", age = 30, is_student = FALSE, scores = c(85, 90, 7
 print(person)
 
 # Accessing elements of a list
-person$name  # Result: "John"
-person[[1]]  # Result: "John"
-person$scores[2]  # Result: 90
+print(person$name)  # Result: "John"
+print(person[[1]])  # Result: "John"
+print(person$scores[2])  # Result: 90
 
 # Data Frames
 # Creating a data frame
 students <- data.frame(
   name = c("John", "Alice", "Bob"),
   age = c(22, 25, 23),
-  gpa = c(3.5, 3.9, 3.2)
+  gpa = c(3.5, 3.9, 3.2),
+  stringsAsFactors = FALSE
 )
 print(students)
 
 # Accessing elements of a data frame
-students$name  # Result: "John" "Alice" "Bob"
-students[1, ]  # Result: First row
-students[, "age"]  # Result: 22 25 23
-students[2, 3]  # Result: 3.9 (element in row 2, column 3)
+print(students$name)  # Result: "John" "Alice" "Bob"
+print(students[1, ])  # Result: First row
+print(students[, "age"])  # Result: 22 25 23
+print(students[2, 3])  # Result: 3.9 (element in row 2, column 3)
 
 # Factors
 # Creating a factor
@@ -126,11 +128,11 @@ gender <- factor(c("male", "female", "male", "female", "male"))
 print(gender)
 
 # Getting the levels of a factor
-levels(gender)  # Result: "female" "male"
+print(levels(gender))  # Result: "female" "male"
 
 # ===== Working Directory =====
 # Get the current working directory
-getwd()
+print(getwd())
 
 # Set the working directory (uncomment and modify path as needed)
 # setwd("/path/to/your/directory")
@@ -140,14 +142,15 @@ getwd()
 sample_data <- data.frame(
   id = 1:5,
   name = c("John", "Alice", "Bob", "Carol", "David"),
-  score = c(85, 92, 78, 88, 95)
+  score = c(85, 92, 78, 88, 95),
+  stringsAsFactors = FALSE
 )
 
 # Export to CSV
 write.csv(sample_data, "sample_data.csv", row.names = FALSE)
 
 # Import from CSV
-imported_data <- read.csv("sample_data.csv")
+imported_data <- read.csv("sample_data.csv", stringsAsFactors = FALSE)
 print(imported_data)
 
 # ===== Basic Data Manipulation =====
@@ -169,17 +172,17 @@ print(students_sorted)
 
 # ===== Basic Summary Statistics =====
 # Summary of the entire data frame
-summary(students)
+print(summary(students))
 
 # Summary of a specific column
-summary(students$age)
+print(summary(students$age))
 
 # Mean, median, min, max of a column
-mean(students$gpa)
-median(students$gpa)
-min(students$gpa)
-max(students$gpa)
-range(students$gpa)
+print(mean(students$gpa))
+print(median(students$gpa))
+print(min(students$gpa))
+print(max(students$gpa))
+print(range(students$gpa))
 
 # ===== Basic Data Visualization =====
 # Scatter plot
@@ -252,13 +255,13 @@ larger_data <- data.frame(
 )
 
 # View the first few rows
-head(larger_data)
+print(head(larger_data))
 
 # Summary statistics
-summary(larger_data)
+print(summary(larger_data))
 
 # Correlation between hours studied and GPA
-cor(larger_data$hours_studied, larger_data$gpa)
+print(cor(larger_data$hours_studied, larger_data$gpa))
 
 # Visualization with ggplot2
 ggplot(larger_data, aes(x = hours_studied, y = gpa, color = gender)) +
