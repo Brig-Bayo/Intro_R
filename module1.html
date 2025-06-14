@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: Basic Use of R</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #3498db;
+        }
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 15px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            background-color: #f8f8f8;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .note {
+            background-color: #e7f5fe;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        .warning {
+            background-color: #fff5e6;
+            border-left: 4px solid #e67e22;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        .question {
+            background-color: #f0f7fb;
+            border-left: 4px solid #4285f4;
+            padding: 15px;
+            margin: 30px 0;
+        }
+        .answer {
+            background-color: #f5f5f5;
+            border-left: 4px solid #34a853;
+            padding: 15px;
+            margin: 10px 0 30px 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            margin-top: 50px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>Module 1: Basic Use of R</h1>
+
+    <h2>Introduction to R and RStudio</h2>
+    <p>R is a powerful programming language and environment specifically designed for statistical computing and graphics. It was created by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, and is now developed by the R Development Core Team. R is widely used among statisticians, data analysts, researchers, and data scientists for data analysis and developing statistical software.</p>
+
+    <h3>Why Learn R?</h3>
+    <ol>
+        <li><strong>Open Source</strong>: R is free and open-source, making it accessible to everyone.</li>
+        <li><strong>Comprehensive Statistical Analysis</strong>: R offers a wide range of statistical techniques, from basic statistics to advanced machine learning algorithms.</li>
+        <li><strong>Excellent Visualization Capabilities</strong>: R provides powerful tools for creating high-quality graphics and visualizations.</li>
+        <li><strong>Large Community and Support</strong>: R has a large and active community that contributes to its development and provides support.</li>
+        <li><strong>Extensibility</strong>: R can be extended through packages, which are collections of R functions, data, and compiled code.</li>
+        <li><strong>Integration</strong>: R can be integrated with other languages and tools, such as Python, SQL, and C++.</li>
+    </ol>
+
+    <h2>Installing R and RStudio</h2>
+
+    <h3>Installing R</h3>
+    <p>R can be downloaded from the Comprehensive R Archive Network (CRAN) website: <a href="https://cran.r-project.org/">https://cran.r-project.org/</a></p>
+
+    <h4>For Windows:</h4>
+    <ol>
+        <li>Go to <a href="https://cran.r-project.org/">https://cran.r-project.org/</a></li>
+        <li>Click on "Download R for Windows"</li>
+        <li>Click on "base"</li>
+        <li>Click on the download link for the latest version</li>
+        <li>Run the downloaded installer and follow the installation instructions</li>
+    </ol>
+
+    <h4>For Mac:</h4>
+    <ol>
+        <li>Go to <a href="https://cran.r-project.org/">https://cran.r-project.org/</a></li>
+        <li>Click on "Download R for macOS"</li>
+        <li>Click on the download link for the latest version</li>
+        <li>Run the downloaded installer and follow the installation instructions</li>
+    </ol>
+
+    <h4>For Linux:</h4>
+    <p>For Ubuntu/Debian-based systems, you can install R using the following commands:</p>
+    <pre><code>sudo apt-get update
+sudo apt-get install r-base r-base-dev</code></pre>
+
+    <p>For Red Hat/Fedora-based systems:</p>
+    <pre><code>sudo yum install R</code></pre>
+
+    <h3>Installing RStudio</h3>
+    <p>RStudio is an integrated development environment (IDE) for R that makes working with R much easier and more productive. It provides a user-friendly interface with many features that enhance the R programming experience.</p>
+
+    <ol>
+        <li>Go to <a href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a></li>
+        <li>Download the free RStudio Desktop version for your operating system</li>
+        <li>Run the downloaded installer and follow the installation instructions</li>
+    </ol>
+
+    <h2>The RStudio Interface</h2>
+    <p>RStudio has a clean, intuitive interface divided into four main panes:</p>
+
+    <ol>
+        <li><strong>Source Editor (top-left)</strong>: Where you write and edit your R scripts</li>
+        <li><strong>Console (bottom-left)</strong>: Where you can run R commands and see their output</li>
+        <li><strong>Environment/History (top-right)</strong>: Shows the objects in your workspace and command history</li>
+        <li><strong>Files/Plots/Packages/Help (bottom-right)</strong>: Shows files in your working directory, plots, installed packages, and help documentation</li>
+    </ol>
+
+    <h3>Customizing RStudio</h3>
+    <p>You can customize the appearance and behavior of RStudio through the Tools > Global Options menu. Some useful customizations include:</p>
+
+    <ul>
+        <li>Changing the color theme (Tools > Global Options > Appearance)</li>
+        <li>Setting the default working directory (Tools > Global Options > General)</li>
+        <li>Configuring code completion (Tools > Global Options > Code)</li>
+    </ul>
+
+    <h2>Basic R Syntax and Operations</h2>
+
+    <h3>R as a Calculator</h3>
+    <p>R can be used as a simple calculator:</p>
+
+    <pre><code># Addition
+5 + 3  # Result: 8
+
+# Subtraction
+10 - 4  # Result: 6
+
+# Multiplication
+6 * 7  # Result: 42
+
+# Division
+15 / 3  # Result: 5
+
+# Exponentiation
+2^3  # Result: 8
+
+# Modulo (remainder after division)
+17 %% 5  # Result: 2
+
+# Integer division
+17 %/% 5  # Result: 3</code></pre>
+
+    <h3>Variables and Assignment</h3>
+    <p>You can store values in variables using the assignment operator <code>&lt;-</code> (or <code>=</code>):</p>
+
+    <pre><code># Assigning a value to a variable
+x &lt;- 10
+y = 5  # Alternative assignment operator
+
+# Printing the value of a variable
+x  # Result: 10
+
+# Performing operations with variables
+z &lt;- x + y  # z will be 15</code></pre>
+
+    <h3>Basic Functions</h3>
+    <p>R has many built-in functions:</p>
+
+    <pre><code># Square root
+sqrt(25)  # Result: 5
+
+# Absolute value
+abs(-7)  # Result: 7
+
+# Rounding
+round(3.14159, 2)  # Result: 3.14
+
+# Natural logarithm
+log(10)  # Result: 2.302585
+
+# Exponential
+exp(1)  # Result: 2.718282 (e)
+
+# Sum
+sum(1, 2, 3, 4, 5)  # Result: 15
+
+# Mean
+mean(c(1, 2, 3, 4, 5))  # Result: 3</code></pre>
+
+    <h3>Comments</h3>
+    <p>Comments in R start with the <code>#</code> symbol:</p>
+
+    <pre><code># This is a comment
+x &lt;- 10  # This is also a comment</code></pre>
+
+    <h2>Data Types and Structures in R</h2>
+
+    <h3>Basic Data Types</h3>
+
+    <ol>
+        <li><strong>Numeric</strong>: Regular decimal numbers
+            <pre><code>x &lt;- 10.5
+class(x)  # Result: "numeric"</code></pre>
+        </li>
+
+        <li><strong>Integer</strong>: Whole numbers
+            <pre><code>y &lt;- 10L  # The 'L' suffix creates an integer
+class(y)  # Result: "integer"</code></pre>
+        </li>
+
+        <li><strong>Character</strong>: Text or string values
+            <pre><code>name &lt;- "John"
+class(name)  # Result: "character"</code></pre>
+        </li>
+
+        <li><strong>Logical</strong>: Boolean values (TRUE or FALSE)
+            <pre><code>is_student &lt;- TRUE
+class(is_student)  # Result: "logical"</code></pre>
+        </li>
+
+        <li><strong>Complex</strong>: Complex numbers
+            <pre><code>z &lt;- 3 + 2i
+class(z)  # Result: "complex"</code></pre>
+        </li>
+    </ol>
+
+    <h3>Data Structures</h3>
+
+    <ol>
+        <li><strong>Vectors</strong>: One-dimensional arrays that can hold elements of the same type
+            <pre><code># Creating a numeric vector
+numbers &lt;- c(1, 2, 3, 4, 5)
+
+# Creating a character vector
+fruits &lt;- c("apple", "banana", "orange")
+
+# Accessing elements of a vector
+numbers[1]  # Result: 1 (R indexing starts at 1, not 0)
+fruits[2]  # Result: "banana"
+
+# Vector operations
+numbers * 2  # Result: 2 4 6 8 10
+numbers + c(10, 20, 30, 40, 50)  # Result: 11 22 33 44 55</code></pre>
+        </li>
+
+        <li><strong>Matrices</strong>: Two-dimensional arrays with elements of the same type
+            <pre><code># Creating a matrix
+mat &lt;- matrix(1:9, nrow = 3, ncol = 3)
+mat
+#      [,1] [,2] [,3]
+# [1,]    1    4    7
+# [2,]    2    5    8
+# [3,]    3    6    9
+
+# Accessing elements of a matrix
+mat[1, 2]  # Result: 4 (element in row 1, column 2)
+mat[2, ]   # Result: 2 5 8 (entire second row)
+mat[, 3]   # Result: 7 8 9 (entire third column)</code></pre>
+        </li>
+
+        <li><strong>Lists</strong>: Ordered collections that can contain elements of different types
+            <pre><code># Creating a list
+person &lt;- list(name = "John", age = 30, is_student = FALSE, scores = c(85, 90, 78))
+
+# Accessing elements of a list
+person$name  # Result: "John"
+person[[1]]  # Result: "John"
+person$scores[2]  # Result: 90</code></pre>
+        </li>
+
+        <li><strong>Data Frames</strong>: Table-like structures where columns can be of different types
+            <pre><code># Creating a data frame
+students &lt;- data.frame(
+  name = c("John", "Alice", "Bob"),
+  age = c(22, 25, 23),
+  gpa = c(3.5, 3.9, 3.2)
+)
+
+students
+#    name age  gpa
+# 1  John  22  3.5
+# 2 Alice  25  3.9
+# 3   Bob  23  3.2
+
+# Accessing elements of a data frame
+students$name  # Result: "John" "Alice" "Bob"
+students[1, ]  # Result: First row
+students[, "age"]  # Result: 22 25 23
+students[2, 3]  # Result: 3.9 (element in row 2, column 3)</code></pre>
+        </li>
+
+        <li><strong>Factors</strong>: Used to represent categorical data
+            <pre><code># Creating a factor
+gender &lt;- factor(c("male", "female", "male", "female", "male"))
+
+gender
+# [1] male   female male   female male  
+# Levels: female male
+
+# Getting the levels of a factor
+levels(gender)  # Result: "female" "male"</code></pre>
+        </li>
+    </ol>
+
+    <h2>Importing and Exporting Data</h2>
+
+    <h3>Working Directory</h3>
+    <p>Before importing or exporting data, it's important to know your working directory:</p>
+
+    <pre><code># Get the current working directory
+getwd()
+
+# Set the working directory
+setwd("/path/to/your/directory")  # Replace with your actual path</code></pre>
+
+    <h3>Importing Data</h3>
+
+    <ol>
+        <li><strong>CSV Files</strong>:
+            <pre><code># Reading a CSV file
+data &lt;- read.csv("data.csv")
+
+# Reading a CSV file with specific options
+data &lt;- read.csv("data.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)</code></pre>
+        </li>
+
+        <li><strong>Excel Files</strong>:
+            <p>To read Excel files, you need to install the <code>readxl</code> package:</p>
+            <pre><code># Install the readxl package (only need to do this once)
+install.packages("readxl")
+
+# Load the readxl package
+library(readxl)
+
+# Reading an Excel file
+data &lt;- read_excel("data.xlsx", sheet = 1)</code></pre>
+        </li>
+
+        <li><strong>Text Files</strong>:
+            <pre><code># Reading a tab-delimited text file
+data &lt;- read.table("data.txt", header = TRUE, sep = "\t")</code></pre>
+        </li>
+
+        <li><strong>R Data Files</strong>:
+            <pre><code># Loading an R data file
+load("data.RData")</code></pre>
+        </li>
+    </ol>
+
+    <h3>Exporting Data</h3>
+
+    <ol>
+        <li><strong>CSV Files</strong>:
+            <pre><code># Writing a data frame to a CSV file
+write.csv(data, "output.csv", row.names = FALSE)</code></pre>
+        </li>
+
+        <li><strong>Excel Files</strong>:
+            <p>To write Excel files, you need to install the <code>writexl</code> package:</p>
+            <pre><code># Install the writexl package (only need to do this once)
+install.packages("writexl")
+
+# Load the writexl package
+library(writexl)
+
+# Writing a data frame to an Excel file
+write_xlsx(data, "output.xlsx")</code></pre>
+        </li>
+
+        <li><strong>Text Files</strong>:
+            <pre><code># Writing a data frame to a tab-delimited text file
+write.table(data, "output.txt", sep = "\t", row.names = FALSE)</code></pre>
+        </li>
+
+        <li><strong>R Data Files</strong>:
+            <pre><code># Saving R objects to an R data file
+save(data, file = "output.RData")</code></pre>
+        </li>
+    </ol>
+
+    <h2>Basic Data Manipulation</h2>
+
+    <h3>Subsetting Data</h3>
+
+    <pre><code># Creating a sample data frame
+df &lt;- data.frame(
+  id = 1:5,
+  name = c("John", "Alice", "Bob", "Carol", "David"),
+  age = c(25, 30, 22, 28, 35),
+  score = c(85, 92, 78, 88, 95)
+)
+
+# Subsetting rows based on a condition
+young_students &lt;- df[df$age &lt; 30, ]
+
+# Subsetting columns
+names_ages &lt;- df[, c("name", "age")]
+
+# Subsetting both rows and columns
+selected_data &lt;- df[df$score > 80, c("id", "name", "score")]</code></pre>
+
+    <h3>Adding and Modifying Columns</h3>
+
+    <pre><code># Adding a new column
+df$grade &lt;- c("B", "A", "C", "B", "A")
+
+# Creating a column based on existing columns
+df$pass &lt;- df$score >= 80
+
+# Modifying an existing column
+df$age &lt;- df$age + 1  # Incrementing all ages by 1</code></pre>
+
+    <h3>Sorting Data</h3>
+
+    <pre><code># Sorting by a single column (ascending)
+df_sorted &lt;- df[order(df$age), ]
+
+# Sorting by a single column (descending)
+df_sorted_desc &lt;- df[order(-df$score), ]
+
+# Sorting by multiple columns
+df_sorted_multi &lt;- df[order(df$grade, df$age), ]</code></pre>
+
+    <h3>Basic Summary Statistics</h3>
+
+    <pre><code># Summary of the entire data frame
+summary(df)
+
+# Summary of a specific column
+summary(df$age)
+
+# Mean, median, min, max of a column
+mean(df$score)
+median(df$score)
+min(df$score)
+max(df$score)
+range(df$score)</code></pre>
+
+    <h2>Basic Data Visualization</h2>
+
+    <h3>Base R Plotting</h3>
+
+    <ol>
+        <li><strong>Scatter Plot</strong>:
+            <pre><code># Creating a scatter plot
+plot(df$age, df$score, 
+     main = "Age vs. Score",
+     xlab = "Age",
+     ylab = "Score",
+     pch = 19,  # Point type
+     col = "blue")</code></pre>
+        </li>
+
+        <li><strong>Line Plot</strong>:
+            <pre><code># Creating a line plot
+x &lt;- 1:10
+y &lt;- x^2
+plot(x, y, 
+     type = "l",  # 'l' for line
+     main = "Line Plot Example",
+     xlab = "X",
+     ylab = "Y",
+     col = "red")</code></pre>
+        </li>
+
+        <li><strong>Bar Plot</strong>:
+            <pre><code># Creating a bar plot
+counts &lt;- table(df$grade)
+barplot(counts, 
+        main = "Grade Distribution",
+        xlab = "Grade",
+        ylab = "Frequency",
+        col = c("red", "green", "blue"))</code></pre>
+        </li>
+
+        <li><strong>Histogram</strong>:
+            <pre><code># Creating a histogram
+hist(df$score, 
+     main = "Score Distribution",
+     xlab = "Score",
+     ylab = "Frequency",
+     col = "lightblue",
+     breaks = 10)</code></pre>
+        </li>
+
+        <li><strong>Box Plot</strong>:
+            <pre><code># Creating a box plot
+boxplot(df$score ~ df$grade, 
+        main = "Score by Grade",
+        xlab = "Grade",
+        ylab = "Score",
+        col = c("red", "green", "blue"))</code></pre>
+        </li>
+    </ol>
+
+    <h3>Saving Plots</h3>
+
+    <pre><code># Opening a PNG device
+png("plot.png", width = 800, height = 600)
+
+# Creating a plot
+plot(df$age, df$score, 
+     main = "Age vs. Score",
+     xlab = "Age",
+     ylab = "Score",
+     pch = 19,
+     col = "blue")
+
+# Closing the device
+dev.off()</code></pre>
+
+    <h2>Introduction to R Packages</h2>
+
+    <p>R packages are collections of R functions, data, and compiled code that extend the functionality of R.</p>
+
+    <h3>Installing Packages</h3>
+
+    <pre><code># Installing a single package
+install.packages("ggplot2")
+
+# Installing multiple packages
+install.packages(c("dplyr", "tidyr", "readr"))</code></pre>
+
+    <h3>Loading Packages</h3>
+
+    <pre><code># Loading a package
+library(ggplot2)
+
+# Checking which packages are loaded
+search()</code></pre>
+
+    <h3>Popular R Packages</h3>
+
+    <ol>
+        <li><strong>ggplot2</strong>: For creating elegant data visualizations</li>
+        <li><strong>dplyr</strong>: For data manipulation</li>
+        <li><strong>tidyr</strong>: For tidying data</li>
+        <li><strong>readr</strong>: For reading rectangular data</li>
+        <li><strong>readxl</strong>: For reading Excel files</li>
+        <li><strong>lubridate</strong>: For working with dates and times</li>
+        <li><strong>stringr</strong>: For working with strings</li>
+        <li><strong>forcats</strong>: For working with factors</li>
+    </ol>
+
+    <h3>Example: Using ggplot2 for Visualization</h3>
+
+    <pre><code># Install and load ggplot2
+install.packages("ggplot2")
+library(ggplot2)
+
+# Creating a scatter plot with ggplot2
+ggplot(df, aes(x = age, y = score, color = grade)) +
+  geom_point(size = 3) +
+  labs(title = "Age vs. Score by Grade",
+       x = "Age",
+       y = "Score") +
+  theme_minimal()</code></pre>
+
+    <h2>Practice Questions</h2>
+
+    <div class="question">
+        <h3>Question 1:</h3>
+        <p>Create a vector containing the numbers 5, 10, 15, 20, and 25. Then, calculate the mean and standard deviation of this vector.</p>
+    </div>
+
+    <div class="answer">
+        <h3>Answer 1:</h3>
+        <pre><code># Create the vector
+my_vector <- c(5, 10, 15, 20, 25)
+
+# Calculate the mean
+mean_value <- mean(my_vector)
+print(mean_value)  # Result: 15
+
+# Calculate the standard deviation
+sd_value <- sd(my_vector)
+print(sd_value)  # Result: 8.660254</code></pre>
+    </div>
+
+    <div class="question">
+        <h3>Question 2:</h3>
+        <p>Create a data frame with three columns: "name" (character), "age" (numeric), and "city" (character). Include at least 4 rows of data. Then, subset the data frame to show only people who are older than 25.</p>
+    </div>
+
+    <div class="answer">
+        <h3>Answer 2:</h3>
+        <pre><code># Create the data frame
+people <- data.frame(
+  name = c("John", "Alice", "Bob", "Carol"),
+  age = c(22, 30, 28, 35),
+  city = c("New York", "Chicago", "Los Angeles", "Boston")
+)
+
+# View the data frame
+print(people)
+
+# Subset the data frame to show only people older than 25
+older_people <- people[people$age > 25, ]
+print(older_people)</code></pre>
+    </div>
+
+    <div class="question">
+        <h3>Question 3:</h3>
+        <p>Create a scatter plot showing the relationship between two variables of your choice. Include appropriate labels for the title, x-axis, and y-axis.</p>
+    </div>
+
+    <div class="answer">
+        <h3>Answer 3:</h3>
+        <pre><code># Create sample data
+x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+y <- c(2, 4, 5, 7, 8, 8, 9, 10, 11, 12)
+
+# Create a scatter plot
+plot(x, y,
+     main = "Relationship Between X and Y",
+     xlab = "X Values",
+     ylab = "Y Values",
+     pch = 19,
+     col = "blue")
+
+# Add a trend line
+abline(lm(y ~ x), col = "red")</code></pre>
+    </div>
+
+    <div class="question">
+        <h3>Question 4:</h3>
+        <p>Install and load the "dplyr" package. Then, create a data frame with columns for student names, test scores, and grades. Use dplyr functions to arrange the data frame in descending order of test scores.</p>
+    </div>
+
+    <div class="answer">
+        <h3>Answer 4:</h3>
+        <pre><code># Install and load dplyr
+install.packages("dplyr")
+library(dplyr)
+
+# Create a data frame
+students <- data.frame(
+  name = c("John", "Alice", "Bob", "Carol", "David"),
+  score = c(85, 92, 78, 88, 95),
+  grade = c("B", "A", "C", "B", "A")
+)
+
+# View the original data frame
+print(students)
+
+# Arrange the data frame in descending order of test scores
+students_sorted <- students %>% arrange(desc(score))
+
+# View the sorted data frame
+print(students_sorted)</code></pre>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 R Data Analysis Course | Module 1: Basic Use of R</p>
+    </div>
+</body>
+</html>
